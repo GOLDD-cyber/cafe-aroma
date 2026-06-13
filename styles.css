@@ -194,6 +194,37 @@ h1, h2, h3 {
 }
 .stat__label { color: var(--muted); font-size: 14px; }
 
+/* ---------- ОТЗЫВЫ ---------- */
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* три отзыва в ряд */
+  gap: 28px;
+}
+.review {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;        /* текст сверху, автор снизу */
+  justify-content: space-between;
+}
+.review__text {
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.review__author {
+  color: var(--muted);
+  font-size: 14px;
+}
+.review__author strong { color: var(--coffee-dark); font-size: 16px; }
+
+/* на телефоне — отзывы в одну колонку */
+@media (max-width: 768px) {
+  .reviews { grid-template-columns: 1fr; }
+}
+
 /* ---------- ФОРМА ---------- */
 .form {
   max-width: 640px;
