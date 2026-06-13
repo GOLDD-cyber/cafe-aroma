@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+  Это HTML-файл — скелет страницы.
+  Комментарии (вот такой текст между "стрелочками") браузер не показывает,
+  они только для нас, чтобы было понятно, что тут происходит.
+-->
+<html lang="ru">
+<head>
+  <!-- В <head> лежит "техническая" информация о странице (её не видно на сайте) -->
+  <meta charset="UTF-8" />                 <!-- чтобы русские буквы не превращались в кракозябры -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- чтобы сайт хорошо смотрелся на телефоне -->
+  <title>Кафе «Арома» — лучший кофе в городе</title>  <!-- текст во вкладке браузера -->
+
+  <!-- Подключаем наш файл с внешним видом (CSS) и шрифт из интернета -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Всё, что внутри <body>, ВИДНО на странице -->
+
+  <!-- ШАПКА сайта: логотип слева, меню-ссылки справа -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">☕ Арома</a>
+      <nav class="nav">
+        <a href="#menu">Меню</a>
+        <a href="#about">О нас</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ГЛАВНЫЙ ЭКРАН (по-английски "hero"): большая картинка-фон, слоган и кнопка -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <h1 class="hero__title">Лучший кофе в городе</h1>
+      <p class="hero__subtitle">Свежая обжарка, уютная атмосфера и десерты собственного приготовления каждый день.</p>
+      <a href="#contact" class="btn btn--primary">Забронировать столик</a>
+    </div>
+  </section>
+
+  <!-- БЛОК МЕНЮ: три карточки -->
+  <section class="section" id="menu">
+    <div class="container">
+      <h2 class="section__title">Наше меню</h2>
+      <p class="section__subtitle">Готовим с любовью из лучших ингредиентов</p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card__emoji">☕</div>
+          <h3 class="card__title">Кофе</h3>
+          <p class="card__text">Эспрессо, капучино, латте, раф. Зёрна обжариваем сами.</p>
+          <span class="card__price">от 150 ₽</span>
+        </article>
+
+        <article class="card">
+          <div class="card__emoji">🍰</div>
+          <h3 class="card__title">Десерты</h3>
+          <p class="card__text">Чизкейк, тирамису, медовик. Свежая выпечка каждое утро.</p>
+          <span class="card__price">от 220 ₽</span>
+        </article>
+
+        <article class="card">
+          <div class="card__emoji">🥐</div>
+          <h3 class="card__title">Выпечка</h3>
+          <p class="card__text">Круассаны, синнабоны и сэндвичи на завтрак.</p>
+          <span class="card__price">от 120 ₽</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК "О НАС" -->
+  <section class="section section--alt" id="about">
+    <div class="container about">
+      <div class="about__text">
+        <h2 class="section__title">О нас</h2>
+        <p>Кафе «Арома» открылось в 2018 году с простой идеей — место, куда хочется возвращаться. Мы сами обжариваем зёрна, печём десерты на собственной кухне и знаем постоянных гостей по именам.</p>
+        <p>Заходите за чашкой кофе — останетесь за атмосферой.</p>
+        <div class="stats">
+          <div class="stat"><span class="stat__num">8</span><span class="stat__label">лет с вами</span></div>
+          <div class="stat"><span class="stat__num">40+</span><span class="stat__label">видов кофе</span></div>
+          <div class="stat"><span class="stat__num">5000</span><span class="stat__label">довольных гостей</span></div>
+        </div>
+      </div>
+      <div class="about__image">🏠</div>
+    </div>
+  </section>
+
+  <!-- БЛОК КОНТАКТОВ С ФОРМОЙ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <h2 class="section__title">Забронировать столик</h2>
+      <p class="section__subtitle">Оставьте заявку — перезвоним в течение 15 минут</p>
+
+      <!-- ФОРМА. Когда человек нажмёт "Отправить", JavaScript (файл script.js) её обработает -->
+      <form class="form" id="bookingForm">
+        <div class="form__row">
+          <label class="form__field">
+            <span>Ваше имя</span>
+            <input type="text" name="name" placeholder="Иван" required />
+          </label>
+          <label class="form__field">
+            <span>Телефон</span>
+            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required />
+          </label>
+        </div>
+        <label class="form__field">
+          <span>Комментарий (необязательно)</span>
+          <textarea name="comment" rows="3" placeholder="На сколько человек, на какое время..."></textarea>
+        </label>
+        <button type="submit" class="btn btn--primary">Отправить заявку</button>
+
+        <!-- Сюда JavaScript впишет сообщение "спасибо" после отправки -->
+        <p class="form__success" id="formSuccess"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ сайта (по-английски "footer") -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <strong>☕ Кафе «Арома»</strong>
+        <p>ул. Кофейная, 15 · ежедневно 8:00–22:00</p>
+      </div>
+      <div>
+        <p>тел. +7 (900) 123-45-67</p>
+        <p>hello@aroma-cafe.ru</p>
+      </div>
+    </div>
+    <p class="footer__copy">© 2026 Кафе «Арома». Сделано с любовью.</p>
+  </footer>
+
+  <!-- Подключаем файл с поведением (JavaScript). Ставим в самом конце, чтобы страница успела загрузиться -->
+  <script src="script.js"></script>
+</body>
+</html>
